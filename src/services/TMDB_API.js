@@ -9,12 +9,20 @@ const get = async (endpoint) => {
 	return data.results;
 }
 
-const getMovies = ({ queryKey }) => {
+// Get popular movies
+const popularMovies = ({ queryKey }) => {
+	const [_key, { page, popularityString}] = queryKey
+	return get(`${BASE_API_URL}/discover/movie${API_key}&page=${page}&sort_by=popularity.${popularityString}`)
+}
+
+// Get latest movies
+const TopRatedMovies = ({ queryKey }) => {
 	const [_key, { page }] = queryKey
-	return get(`${BASE_API_URL}/discover/movie${API_key}&page=${page}&sort_by=popularity.desc`)
-		
+	return get(`${BASE_API_URL}/movie/top_rated${API_key}&page=${page}&sort_by=popularity`)
 }
 
 export default{
-	getMovies,
+	popularMovies,
+	TopRatedMovies,
+
 }

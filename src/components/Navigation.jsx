@@ -15,9 +15,9 @@ const Navigation = () => {
 					</Dropdown.Toggle>
 
 					<Dropdown.Menu>
-						<Dropdown.Item as={Link} to='/'>Senaste</Dropdown.Item>
-						<Dropdown.Item as={Link} to='/popularmovies'>Populära</Dropdown.Item>
-						<Dropdown.Item as={Link} to='/'>Topplistade</Dropdown.Item>
+						<Dropdown.Item as={Link} to='/latest_movies'>Senaste</Dropdown.Item>
+						<Dropdown.Item as={Link} to='/popular_movies'>Populära</Dropdown.Item>
+						<Dropdown.Item as={Link} to='/top_rated_movies'>Topplistade</Dropdown.Item>
 						<Dropdown.Divider />
 						<Dropdown.Item as={Link} to='/'>Genre</Dropdown.Item>
 					</Dropdown.Menu>

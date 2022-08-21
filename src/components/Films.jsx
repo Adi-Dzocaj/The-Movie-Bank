@@ -1,14 +1,17 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useQuery } from 'react-query'
 import TMDB_API from '../services/TMDB_API'
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
+import { Button } from 'react-bootstrap'
 
 const Films = () => {
 
-	const [ page, setPage ] = useState(1)
+	let [ page, setPage ] = useState(1)
+	let [ popularity, setPopularity ] = useState(true)
+	let [ popularityString, setPopularityString ] = useState('desc')
 
-	const { isLoading, isError, error, data } = useQuery(['films', { page }], TMDB_API.getMovies)
+	const { isLoading, isError, error, data } = useQuery(['popularMovies', { page, popularityString }], TMDB_API.popularMovies)
 
 	let UrlPrefixer = 'https://image.tmdb.org/t/p/w500'
 
@@ -22,7 +25,20 @@ const Films = () => {
 
 	return (
 		<div>
-			<h1 className='mt-3 mb-3' style={{textAlign: "center"}}>Popular Movies</h1>
+			<div className='d-flex justify-content-center'>
+				<Button onClick={() => {
+					setPopularityString('asc') 
+					setPopularity(false)
+					}} style={{textAlign: "center", backgroundColor: popularity ? 'white' : 'black', color: popularity ? 'black' : 'white', border: 'none'}} className='popularityButton mt-3 mb-3 me-3'>
+					<h3>Least popular</h3>
+				</Button>
+				<Button onClick={() => {
+					setPopularityString('desc')
+					setPopularity(true)
+					}} style={{textAlign: "center", backgroundColor: popularity ? 'black' : 'white', color: popularity ? 'white' : 'black', border: 'none'}} className='popularityButton mt-3 mb-3' >
+					<h3>Most popular</h3>
+				</Button>
+			</div>
 			<div style={{display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "10px"}}>
 				{data.map((film, i) => {
 					return (
