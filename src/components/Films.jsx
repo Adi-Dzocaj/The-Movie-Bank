@@ -2,17 +2,22 @@ import { useState, useEffect } from 'react'
 import { useQuery } from 'react-query'
 import TMDB_API from '../services/TMDB_API'
 import Card from 'react-bootstrap/Card';
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Button } from 'react-bootstrap'
 import Pagination from '../components/Pagination'
 
 const Films = () => {
 
-	let [ page, setPage ] = useState(1)
 	let [ popularity, setPopularity ] = useState(true)
 	let [ popularityString, setPopularityString ] = useState('desc')
 
-	const { isLoading, isError, error, data } = useQuery(['popularMovies', { page, popularityString }], TMDB_API.popularMovies)
+	const [searchParams, setSearchParams] = useSearchParams({
+		page: 1,
+	});
+
+	const pageParam = searchParams.get('page')
+
+	const { isLoading, isError, error, data } = useQuery(['popularMovies', { pageParam, popularityString }], TMDB_API.popularMovies)
 
 	let UrlPrefixer = 'https://image.tmdb.org/t/p/w500'
 
@@ -45,10 +50,16 @@ const Films = () => {
 				</div>
 
 				<Pagination
-				currentPage={page}
+				currentPage={pageParam}
 				numPages={data.total_pages}
-				goPrevPage={() => {page - 1 > 0 ? setPage(page - 1) : setPage(page)}}
-				goNextPage={() => {page + 1 > data.total_pages ? setPage(page) : setPage(page + 1)}}
+				goPrevPage={() => {
+					setSearchParams({page: Number(pageParam) - 1 })
+				}}
+				goNextPage={() => {
+					setSearchParams({page: Number(pageParam) + 1 })
+				}}
+				disabledBack={Number(pageParam) === 1}
+				disabledFront={Number(pageParam) === data.total_pages}
 				/>
 
 			</div>

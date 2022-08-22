@@ -11,21 +11,26 @@ const get = async (endpoint) => {
 
 // Get popular movies
 const popularMovies = ({ queryKey }) => {
-	const [_key, { page, popularityString}] = queryKey
-	return get(`${BASE_API_URL}/discover/movie${API_key}&page=${page}&sort_by=popularity.${popularityString}`)
+	const [_key, { pageParam, popularityString}] = queryKey
+	return get(`${BASE_API_URL}/discover/movie${API_key}&page=${pageParam}&sort_by=popularity.${popularityString}`)
 }
 
 // Get top rated movies
 const topRatedMovies = ({ queryKey }) => {
-	const [_key, { page }] = queryKey
-	return get(`${BASE_API_URL}/movie/top_rated${API_key}&page=${page}`)
+	const [_key, { pageParam }] = queryKey
+	return get(`${BASE_API_URL}/movie/top_rated${API_key}&page=${pageParam}`)
 }
 
 // Get latest movies
 const latestMovies = ({ queryKey }) => {
-	const [_key, { page }] = queryKey
-	return get(`${BASE_API_URL}/movie/now_playing${API_key}&page=${page}&sort_by=release_date.desc`)
+	const [_key, { pageParam }] = queryKey
+	return get(`${BASE_API_URL}/movie/now_playing${API_key}&page=${pageParam}&sort_by=release_date.desc`)
 }
+
+// const movieInformation = ({ queryKey }) => {
+// 		const [_key, { page }] = queryKey
+// 		return get(`${BASE_API_URL}/movie/now_playing${API_key}&page=${page}&sort_by=release_date.desc`)
+// }
 
 export default{
 	popularMovies,
