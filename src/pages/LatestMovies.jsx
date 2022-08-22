@@ -14,7 +14,7 @@ const latestMovies = () => {
 
 	const pageParam = searchParams.get('page')
 
-	const { isLoading, isError, error, data } = useQuery(['TopRatedMovies', { pageParam }], TMDB_API.latestMovies)
+	const { isLoading, isError, error, data } = useQuery(['latestMovies', { pageParam }], TMDB_API.latestMovies)
 
 	let UrlPrefixer = 'https://image.tmdb.org/t/p/w500'
 
@@ -49,7 +49,7 @@ const latestMovies = () => {
 				<div style={{display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "10px"}}>
 					{data.results.map((film, i) => {
 						return (
-						<Link style={{color: "white", textDecoration: "none"}} className='popularMovieCard' key={i} to="/">
+						<Link style={{color: "white", textDecoration: "none"}} className='popularMovieCard' key={i} to={`/movie/${film.id}`}>
 							<Card style={{width: 200, height: 250, backgroundColor: "black"}}>
 							<Card.Img variant='top' style={{width: 200, height: 100}} src={UrlPrefixer.concat(film.poster_path)} alt=""/>
 							<Card.Body>

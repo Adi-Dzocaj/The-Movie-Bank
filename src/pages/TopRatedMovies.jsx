@@ -48,7 +48,7 @@ const TopRatedMovies = () => {
 				<div style={{display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "10px"}}>
 					{data.results.map((film, i) => {
 						return (
-						<Link style={{color: "white", textDecoration: "none"}} className='popularMovieCard' key={i} to="/">
+						<Link style={{color: "white", textDecoration: "none"}} className='popularMovieCard' key={i} to={`/movie/${film.id}`}>
 							<Card style={{width: 200, height: 250, backgroundColor: "black"}}>
 							<Card.Img variant='top' style={{width: 200, height: 100}} src={UrlPrefixer.concat(film.poster_path)} alt=""/>
 							<Card.Body>

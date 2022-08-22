@@ -27,13 +27,14 @@ const latestMovies = ({ queryKey }) => {
 	return get(`${BASE_API_URL}/movie/now_playing${API_key}&page=${pageParam}&sort_by=release_date.desc`)
 }
 
-// const movieInformation = ({ queryKey }) => {
-// 		const [_key, { page }] = queryKey
-// 		return get(`${BASE_API_URL}/movie/now_playing${API_key}&page=${page}&sort_by=release_date.desc`)
-// }
+const movieInformation = ({ queryKey }) => {
+		const [_key, { id }] = queryKey
+		return get(`${BASE_API_URL}/movie/${id}${API_key}`)
+}
 
 export default{
 	popularMovies,
 	topRatedMovies,
-	latestMovies
+	latestMovies,
+	movieInformation
 }
