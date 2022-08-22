@@ -6,7 +6,7 @@ const API_key = `?api_key=${import.meta.env.VITE_REACT_APP_TMDB_API_KEY}`
 const get = async (endpoint) => {
 	const { data } = await axios.get(endpoint)
 	console.log(data)
-	return data.results;
+	return data;
 }
 
 // Get popular movies
@@ -15,14 +15,20 @@ const popularMovies = ({ queryKey }) => {
 	return get(`${BASE_API_URL}/discover/movie${API_key}&page=${page}&sort_by=popularity.${popularityString}`)
 }
 
-// Get latest movies
-const TopRatedMovies = ({ queryKey }) => {
+// Get top rated movies
+const topRatedMovies = ({ queryKey }) => {
 	const [_key, { page }] = queryKey
-	return get(`${BASE_API_URL}/movie/top_rated${API_key}&page=${page}&sort_by=popularity`)
+	return get(`${BASE_API_URL}/movie/top_rated${API_key}&page=${page}`)
+}
+
+// Get latest movies
+const latestMovies = ({ queryKey }) => {
+	const [_key, { page }] = queryKey
+	return get(`${BASE_API_URL}/movie/now_playing${API_key}&page=${page}&sort_by=release_date.desc`)
 }
 
 export default{
 	popularMovies,
-	TopRatedMovies,
-
+	topRatedMovies,
+	latestMovies
 }
