@@ -29,7 +29,7 @@ const latestMovies = ({ queryKey }) => {
 
 const movieInformation = ({ queryKey }) => {
 		const [_key, { id }] = queryKey
-		return get(`${BASE_API_URL}/movie/${id}${API_key}`)
+		return get(`${BASE_API_URL}/movie/${id}${API_key}&append_to_response=credits`)
 }
 
 export default{

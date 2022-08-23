@@ -1,0 +1,94 @@
+.movieHero {
+	display: flex;
+	flex-direction: column;
+}
+
+.movieInformationImage {
+	width: 100%;
+}
+
+.movieHeader {
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.movieBody {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+h2, .genreLink {
+	font-size: 12px;
+}
+p, .actorLink {
+	font-size: 8px;
+}
+
+.actorLink, .genreLink {
+	color: black;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.actorLink:hover, .genreLink:hover {
+	opacity: 0.6;
+	color: black;
+	text-decoration: underline;
+}
+
+.informationDropDownMenu {
+	display: flex;
+	align-items: center;
+	margin-bottom: .5rem;
+}
+
+.informationDropDownMenu:hover {
+	cursor: pointer;
+	opacity: 0.6;
+}
+
+.exploreHeader {
+	font-weight: bold;
+}
+
+.exploreData {
+	display: inline;
+	font-weight: initial;
+}
+
+@media only screen and (min-width: 500px) {
+
+	h2, .genreLink{
+		font-size: 20px;
+	}
+	p, .actorLink {
+		font-size: 16px;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	h2, .genreLink {
+		font-size: 25px;
+	}
+	p, .actorLink {
+		font-size: 20px;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.movieHero {
+		flex-direction: row;
+	}
+	.movieInformationContainer {
+		margin: 30px;
+	}
+	.movieInformationImage {
+		width: 40%;
+	}
+	.movieBody {
+		margin-top: 50px;
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+}
