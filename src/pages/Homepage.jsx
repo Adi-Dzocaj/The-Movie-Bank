@@ -25,7 +25,7 @@ function Homepage() {
 			<Link to='/top_rated_movies'>
 				<Button style={{padding: '20px', width: '200px'}} variant="dark">Rating</Button>
 			</Link>
-			<Link to='/popular_movies'>
+			<Link to='/movie/genres'>
 				<Button style={{padding: '20px', width: '200px'}} variant="dark">Genre</Button>
 			</Link>
 			</div>

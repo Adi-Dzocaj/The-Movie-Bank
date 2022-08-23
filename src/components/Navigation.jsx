@@ -21,7 +21,7 @@ const Navigation = () => {
 						<Dropdown.Item as={Link} to='/popular_movies'>Populära</Dropdown.Item>
 						<Dropdown.Item as={Link} to='/top_rated_movies'>Topplistade</Dropdown.Item>
 						<Dropdown.Divider />
-						<Dropdown.Item as={Link} to='/'>Genre</Dropdown.Item>
+						<Dropdown.Item as={Link} to='/movie/genres'>Genre</Dropdown.Item>
 					</Dropdown.Menu>
 				</Dropdown>
 			</div>

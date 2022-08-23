@@ -32,9 +32,15 @@ const movieInformation = ({ queryKey }) => {
 		return get(`${BASE_API_URL}/movie/${id}${API_key}&append_to_response=credits`)
 }
 
+const getGenres = ({ queryKey }) => {
+	const [_key ] = queryKey
+	return get(`${BASE_API_URL}/genre/movie/list${API_key}`)
+}
+
 export default{
 	popularMovies,
 	topRatedMovies,
 	latestMovies,
-	movieInformation
+	movieInformation,
+	getGenres
 }
