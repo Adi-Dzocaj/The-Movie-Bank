@@ -16,8 +16,6 @@ const GenrePage = () => {
 		return alert(error.message)
 	}
 
-	console.log(data)
-
 	return (
 		<div>
 			<h1 style={{textAlign: 'center', borderBottom: '1px solid lightgray', margin: '20px', paddingBottom: '10px'}}>Genres</h1>

@@ -10,8 +10,6 @@ const actorInformation = () => {
 
 	let { id } = useParams()
 
-	console.log('id', id)
-
 	const { isLoading, isError, error, data } = useQuery(['actorInfo', { id }], TMDB_API.getActor)
 
 	if (isLoading) {
@@ -21,8 +19,6 @@ const actorInformation = () => {
 	if (isError) {
 		return alert(error.message)
 	}
-
-	console.log('person:', data)
 
 	return (
 		<div className='movieInformationContainer'>

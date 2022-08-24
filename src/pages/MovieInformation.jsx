@@ -28,8 +28,6 @@ const movieInformation = () => {
 		return alert(error.message)
 	}
 
-	console.log('dataTagline:', data.tagline)
-
 	return (
 		<div className='movieInformationContainer'>
 			<div className='movieHero'>
