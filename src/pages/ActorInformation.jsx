@@ -7,7 +7,6 @@ import { useUrlPrefixerContext } from '../Contexts/UrlPrefixerContext'
 const actorInformation = () => {
 
 	const { UrlPrefixer } = useUrlPrefixerContext()
-	// let UrlPrefixer = 'https://image.tmdb.org/t/p/w500'
 
 	let { id } = useParams()
 

@@ -1,15 +1,12 @@
 import { useQuery } from 'react-query'
 import TMDB_API from '../services/TMDB_API'
-import Card from 'react-bootstrap/Card';
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Pagination from '../components/Pagination'
 import './TopRatedMoviesStyling.css'
-import { useUrlPrefixerContext } from "../Contexts/UrlPrefixerContext";
+import MovieCards from '../components/MovieCards';
 
 const latestMovies = () => {
 
-	const { UrlPrefixer } = useUrlPrefixerContext()
-	
 	const [searchParams, setSearchParams] = useSearchParams({
 		page: 1,
 	});
@@ -45,23 +42,7 @@ const latestMovies = () => {
 
 				/>
 			</div>
-			<div className='d-flex'>
-				<div style={{display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "10px"}}>
-					{data.results.map((film, i) => {
-						return (
-						<Link style={{color: "white", textDecoration: "none"}} className='popularMovieCard' key={i} to={`/movie/${film.id}`}>
-							<Card style={{width: 200, height: 250, backgroundColor: "black"}}>
-							<Card.Img variant='top' style={{width: 200, height: 100}} src={UrlPrefixer.concat(film.poster_path)} alt=""/>
-							<Card.Body>
-								<Card.Title style={{height: "70px", textAlign: "center"}}>{film.title}</Card.Title>
-								<Card.Text style={{fontSize: '12px'}}>Release date: {film.release_date}</Card.Text>
-							</Card.Body>
-							</Card>
-						</Link>
-						)
-					})}
-				</div>
-			</div>
+			<MovieCards data={data}/>
 		</div>
 	)
 }
