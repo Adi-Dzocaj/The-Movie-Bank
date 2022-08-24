@@ -7,6 +7,7 @@ import PopularMoviePage from './pages/PopularMoviePage';
 import Navigation from './components/Navigation'
 import MovieInformation from './pages/MovieInformation';
 import GenrePage from './pages/GenrePage';
+import GenreMoviesPage from './pages/GenreMoviesPage';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/top_rated_movies" element={<TopRatedMovies />} />
 		<Route path="/movie/:id" element={<MovieInformation/>}/>
 		<Route path="/movie/genres" element={<GenrePage/>}/>
+		<Route path="/movies/:genre/:id" element={<GenreMoviesPage/>}/>
 	</Routes>
 	</>
 	)
