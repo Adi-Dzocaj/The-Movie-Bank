@@ -42,11 +42,17 @@ const getMoviesFromGenre = ({ queryKey }) => {
 	return get(`${BASE_API_URL}/discover/movie${API_key}&with_genres=${id}&page=${pageParam}`)
 }
 
+const getActor = ({ queryKey }) => {
+	const [_key, { id }] = queryKey
+	return get(`${BASE_API_URL}/person/${id}${API_key}`)
+}
+
 export default{
 	popularMovies,
 	topRatedMovies,
 	latestMovies,
 	movieInformation,
 	getGenres,
-	getMoviesFromGenre
+	getMoviesFromGenre,
+	getActor
 }

@@ -16,7 +16,7 @@ const GenreMoviesPage = () => {
 
 	const pageParam = searchParams.get('page')
 
-	const { isLoading, isError, error, data } = useQuery(['GenreList', { pageParam, id }], TMDB_API.getMoviesFromGenre)
+	const { isLoading, isError, error, data } = useQuery(['genreMovieList', { pageParam, id }], TMDB_API.getMoviesFromGenre)
 
 	if (isLoading) {
 		return <p>Loading...</p>
@@ -28,17 +28,6 @@ const GenreMoviesPage = () => {
 
 	console.log('data', data)
 
-
-	const fruits = ['mango', 'pear', 'orange']
-
-
-	console.log('genreID:', id)
-
-	console.log('fruits', fruits.includes('mango'))
-
-	console.log('genres', data.results[0].genre_ids)
-
-	console.log('result', data.results[0].genre_ids.includes(Number(id)))
 	return (
 		<div>
 			<h1 className='mt-3 mb-3' style={{textAlign: "center", position: 'sticky', top: '0'}}>{genre}</h1>

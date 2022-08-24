@@ -76,7 +76,7 @@ const movieInformation = () => {
 						return (
 
 							<div key={i}>
-								<Link className='actorLink' to='/'>{actor.name}</Link>
+								<Link className='actorLink' to={`/person/${actor.id}`}>{actor.name}</Link>
 								<p style={{color: 'red', display: 'inline'}}> as</p>
 								<p style={{display: 'inline'}}> {actor.character}</p>
 							</div>
