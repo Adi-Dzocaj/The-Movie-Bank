@@ -1,26 +1,22 @@
 import TMDB_API from '../services/TMDB_API'
 import { useParams, Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
 import './movieInformation.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { useUrlPrefixerContext } from '../Contexts/UrlPrefixerContext'
 
 const actorInformation = () => {
 
-	let UrlPrefixer = 'https://image.tmdb.org/t/p/w500'
+	const { UrlPrefixer } = useUrlPrefixerContext()
+	// let UrlPrefixer = 'https://image.tmdb.org/t/p/w500'
 
 	let { id } = useParams()
 
 	console.log('id', id)
-	
-	const [ displayActors, setDisplayActors ] = useState(false)
-	const [ displayProductionCompanies, setDisplayProductionCompanies ] = useState(false)
 
 	const { isLoading, isError, error, data } = useQuery(['actorInfo', { id }], TMDB_API.getActor)
 
 	if (isLoading) {
-		return <p>Loading...</p>
+		return <p className="mt-3 mb-3" style={{textAlign: 'center'}}>Loading...</p>
 	}
 
 	if (isError) {

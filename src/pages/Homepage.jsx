@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from 'react-bootstrap'
 import heroImage from '../assets/images/movie-hero-img.jpg'
-import { Navbar } from "react-bootstrap"
-
 
 function Homepage() {
 	return (

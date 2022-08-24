@@ -5,8 +5,11 @@ import Card from 'react-bootstrap/Card';
 import { Link, useSearchParams } from "react-router-dom";
 import { Button } from 'react-bootstrap'
 import Pagination from '../components/Pagination'
+import { useUrlPrefixerContext } from "../Contexts/UrlPrefixerContext";
 
 const Films = () => {
+
+	const { UrlPrefixer } = useUrlPrefixerContext()
 
 	let [ popularity, setPopularity ] = useState(true)
 	let [ popularityString, setPopularityString ] = useState('desc')
@@ -19,10 +22,8 @@ const Films = () => {
 
 	const { isLoading, isError, error, data } = useQuery(['popularMovies', { pageParam, popularityString }], TMDB_API.popularMovies)
 
-	let UrlPrefixer = 'https://image.tmdb.org/t/p/w500'
-
 	if (isLoading) {
-		return <p>Loading...</p>
+		return <p className="mt-3 mb-3" style={{textAlign: 'center'}}>Loading...</p>
 	}
 
 	if (isError) {

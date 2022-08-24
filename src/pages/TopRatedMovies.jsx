@@ -5,8 +5,11 @@ import Card from 'react-bootstrap/Card';
 import { Link, useSearchParams } from "react-router-dom";
 import Pagination from '../components/Pagination'
 import './TopRatedMoviesStyling.css'
+import { useUrlPrefixerContext } from "../Contexts/UrlPrefixerContext";
 
 const TopRatedMovies = () => {
+
+	const { UrlPrefixer } = useUrlPrefixerContext()
 
 	const [searchParams, setSearchParams] = useSearchParams({
 		page: 1,
@@ -15,8 +18,6 @@ const TopRatedMovies = () => {
 	const pageParam = searchParams.get('page')
 
 	const { isLoading, isError, error, data } = useQuery(['TopRatedMovies', { pageParam }], TMDB_API.topRatedMovies)
-
-	let UrlPrefixer = 'https://image.tmdb.org/t/p/w500'
 
 	if (isLoading) {
 		return <p>Loading...</p>

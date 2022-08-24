@@ -3,10 +3,11 @@ import { useQuery } from "react-query"
 import { Link, useSearchParams, useParams } from "react-router-dom";
 import { Card } from 'react-bootstrap'
 import Pagination from "../components/Pagination";
+import { useUrlPrefixerContext } from "../Contexts/UrlPrefixerContext";
 
 const GenreMoviesPage = () => {
 
-	let UrlPrefixer = 'https://image.tmdb.org/t/p/w500'
+	const { UrlPrefixer } = useUrlPrefixerContext()
 
 	const [searchParams, setSearchParams] = useSearchParams({
 		page: 1,
@@ -19,7 +20,7 @@ const GenreMoviesPage = () => {
 	const { isLoading, isError, error, data } = useQuery(['genreMovieList', { pageParam, id }], TMDB_API.getMoviesFromGenre)
 
 	if (isLoading) {
-		return <p>Loading...</p>
+		return <p className="mt-3 mb-3" style={{textAlign: 'center'}}>Loading...</p>
 	}
 
 	if (isError) {

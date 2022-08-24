@@ -5,10 +5,11 @@ import { useQuery } from 'react-query'
 import './movieInformation.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
+import { useUrlPrefixerContext } from "../Contexts/UrlPrefixerContext";
 
 const movieInformation = () => {
 
-	let UrlPrefixer = 'https://image.tmdb.org/t/p/w500'
+	const { UrlPrefixer } = useUrlPrefixerContext()
 	
 	const [ displayActors, setDisplayActors ] = useState(false)
 	const [ displayProductionCompanies, setDisplayProductionCompanies ] = useState(false)
@@ -20,7 +21,7 @@ const movieInformation = () => {
 	const { isLoading, isError, error, data } = useQuery(['movieInfo', { id }], TMDB_API.movieInformation)
 
 	if (isLoading) {
-		return <p>Loading...</p>
+		return <p className="mt-3 mb-3" style={{textAlign: 'center'}}>Loading...</p>
 	}
 
 	if (isError) {
