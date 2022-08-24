@@ -2,7 +2,7 @@ import { useQuery } from 'react-query'
 import TMDB_API from '../services/TMDB_API'
 import { useSearchParams } from "react-router-dom";
 import Pagination from '../components/Pagination'
-import './TopRatedMoviesStyling.css'
+import './PageStyling/TopRatedMoviesStyling.css'
 import MovieCards from '../components/MovieCards';
 
 const latestMovies = () => {

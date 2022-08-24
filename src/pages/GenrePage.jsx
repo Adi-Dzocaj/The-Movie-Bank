@@ -1,9 +1,8 @@
-import { useEffect } from "react"
 import TMDB_API from "../services/TMDB_API"
 import { useQuery } from "react-query"
 import { Link } from "react-router-dom"
 import { Card } from 'react-bootstrap'
-import './GenrePageStyling.css'
+import './PageStyling/GenrePageStyling.css'
 
 const GenrePage = () => {
 

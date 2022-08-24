@@ -1,7 +1,7 @@
 import TMDB_API from '../services/TMDB_API'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useQuery } from 'react-query'
-import './movieInformation.css'
+import './PageStyling/movieInformation.css'
 import { useUrlPrefixerContext } from '../Contexts/UrlPrefixerContext'
 
 const actorInformation = () => {

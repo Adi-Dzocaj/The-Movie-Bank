@@ -1,8 +1,8 @@
 import TMDB_API from '../services/TMDB_API'
 import { useParams, Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useQuery } from 'react-query'
-import './movieInformation.css'
+import './PageStyling/movieInformation.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 import { useUrlPrefixerContext } from "../Contexts/UrlPrefixerContext";
