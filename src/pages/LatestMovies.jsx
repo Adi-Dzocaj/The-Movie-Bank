@@ -26,8 +26,7 @@ const latestMovies = () => {
 	return (
 		<div>
 			<div style={{position: 'sticky', top: '0', backgroundColor: 'white', zIndex: '50'}}>
-				<h1 className='mt-3 mb-3' style={{textAlign: "center", position: 'sticky', top: '0'}}>Latest Movies</h1>
-				<hr />
+				<h1 className='mt-3 mb-3 pt-3 pb-3' style={{textAlign: "center", position: 'sticky', top: '0', borderBottom: '1px solid black'}}>Latest Movies</h1>
 				<Pagination
 				currentPage={pageParam}
 				numPages={data.total_pages}

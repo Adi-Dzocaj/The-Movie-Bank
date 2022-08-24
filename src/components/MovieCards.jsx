@@ -8,7 +8,7 @@ const MovieCards = ({ data }) => {
 	
 	return (
 		<div>
-			<div className='d-flex'>
+			<div className='d-flex mb-3'>
 				<div style={{display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "10px"}}>
 					{data.results.map((film, i) => {
 						return (

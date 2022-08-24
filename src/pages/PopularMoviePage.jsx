@@ -29,10 +29,9 @@ const PopularMoviePage = () => {
 
 	return (
 		<div>
-			<div className='pt-3' style={{backgroundColor: 'white', position: 'sticky', top: '0', zIndex: '50'}}>
-				<h1 className='mb-3' style={{textAlign: "center"}}>Movies Based On Popularity</h1>
-				<hr />
-				<div className='d-flex justify-content-center' style={{padding: '10px'}}>
+			<h1 className='pt-3 pb-3' style={{textAlign: "center", borderBottom: '1px solid lightgray'}}>Movies Based On Popularity</h1>
+			<div style={{backgroundColor: 'white', position: 'sticky', top: '0', zIndex: '50'}}>
+				<div className='d-flex justify-content-center' style={{padding: '10px', borderBottom: '1px solid lightgray'}}>
 					<Button onClick={() => {
 						setPopularityString('asc') 
 						setPopularity(false)

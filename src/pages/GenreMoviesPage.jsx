@@ -24,24 +24,24 @@ const GenreMoviesPage = () => {
 		return alert(error.message)
 	}
 
-	console.log('data', data)
-
 	return (
 		<div>
-			<h1 className='mt-3 mb-3' style={{textAlign: "center", position: 'sticky', top: '0'}}>{genre}</h1>
-			<hr />
-			<Pagination
-			currentPage={pageParam}
-			numPages={data.total_pages}
-			goPrevPage={() => {
-				setSearchParams({page: Number(pageParam) - 1 })
-			}}
-			goNextPage={() => {
-				setSearchParams({page: Number(pageParam) + 1 })
-			}}
-			disabledBack={Number(pageParam) === 1}
-			disabledFront={Number(pageParam) === data.total_pages}
-			/>
+			<div style={{position: 'sticky', top: '0', zIndex: '50', backgroundColor: 'white'}}>
+				<h1 className='mt-3 mb-3' style={{textAlign: "center"}}>{genre}</h1>
+				<hr />
+				<Pagination
+				currentPage={pageParam}
+				numPages={data.total_pages}
+				goPrevPage={() => {
+					setSearchParams({page: Number(pageParam) - 1 })
+				}}
+				goNextPage={() => {
+					setSearchParams({page: Number(pageParam) + 1 })
+				}}
+				disabledBack={Number(pageParam) === 1}
+				disabledFront={Number(pageParam) === data.total_pages}
+				/>
+			</div>
 			<MovieCards data={data}/>
 		</div>
 	)
