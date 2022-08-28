@@ -17,7 +17,7 @@ const PopularMoviePage = () => {
 
 	const pageParam = searchParams.get('page')
 
-	const { isLoading, isError, error, data } = useQuery(['popularMovies', { pageParam, popularityString }], TMDB_API.popularMovies)
+	const { isLoading, isError, error, data } = useQuery(['popularMovies', { pageParam, popularityString }], TMDB_API.popularMovies, {keepPreviousData: true})
 
 	if (isLoading) {
 		return <p className="mt-3 mb-3" style={{textAlign: 'center'}}>Loading...</p>
@@ -35,12 +35,14 @@ const PopularMoviePage = () => {
 					<Button onClick={() => {
 						setPopularityString('asc') 
 						setPopularity(false)
+						setSearchParams({page: 1})
 						}} style={{textAlign: "center", backgroundColor: popularity ? 'white' : 'black', color: popularity ? 'black' : 'white', border: 'none'}} className='popularityButton me-3'>
 						<h3>Least popular</h3>
 					</Button>
 					<Button onClick={() => {
 						setPopularityString('desc')
 						setPopularity(true)
+						setSearchParams({page: 1})
 						}} style={{textAlign: "center", backgroundColor: popularity ? 'black' : 'white', color: popularity ? 'white' : 'black', border: 'none'}} className='popularityButton ' >
 						<h3>Most popular</h3>
 					</Button>

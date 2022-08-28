@@ -58,7 +58,7 @@ const movieInformation = () => {
 					<h2 className='exploreHeader'>{data.genres.length > 1 ? 'Genres' : 'Genre'}: {data.genres.map((genre, i) => {
 						return (
 							// CLARIFICATION - if there are more than one genre, conditionally render a ',' divider on all elements but the last one.
-							<Link style={{fontWeight: 'initial'}} className='genreLink' to='/' key={i}>{genre.name}{i + 1 === data.genres.length ? '' : ','} </Link>
+							<Link style={{fontWeight: 'initial'}} className='genreLink' to={`/movies/${genre.name}/${genre.id}`} key={i}>{genre.name}{i + 1 === data.genres.length ? '' : ','} </Link>
 						)
 					})}</h2>
 				</div>
@@ -73,11 +73,10 @@ const movieInformation = () => {
 				<div className={displayActors ? 'd-block ' : 'd-none'}>
 					{data.credits.cast.map((actor, i) => {
 						return (
-
 							<div key={i}>
-								<Link className='actorLink' to={`/person/${actor.id}`}>{actor.name}</Link>
-								<p style={{color: 'red', display: 'inline'}}> as</p>
-								<p style={{display: 'inline'}}> {actor.character}</p>
+								<Link className='blackLink' to={`/person/${actor.id}`}>{actor.name}</Link>
+								{actor.character.length > 1 ? <div style={{display: 'inline'}}><p style={{color: 'red', display: 'inline'}}> as</p> <p style={{display: 'inline'}}>{actor.character}</p></div> : ''}
+								
 							</div>
 						)
 					})}

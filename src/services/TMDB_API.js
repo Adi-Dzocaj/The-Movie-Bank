@@ -48,7 +48,7 @@ const getMoviesFromGenre = ({ queryKey }) => {
 // Get actor information
 const getActor = ({ queryKey }) => {
 	const [_key, { id }] = queryKey
-	return get(`${BASE_API_URL}/person/${id}${API_key}`)
+	return get(`${BASE_API_URL}/person/${id}${API_key}&append_to_response=combined_credits`)
 }
 
 export default{

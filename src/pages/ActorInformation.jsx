@@ -1,14 +1,19 @@
 import TMDB_API from '../services/TMDB_API'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
+import { useState } from 'react'
 import { useQuery } from 'react-query'
 import './PageStyling/movieInformation.css'
 import { useUrlPrefixerContext } from '../Contexts/UrlPrefixerContext'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons'
 
 const actorInformation = () => {
 
 	const { UrlPrefixer } = useUrlPrefixerContext()
 
 	let { id } = useParams()
+
+	const [ displayMovies, setDisplayMovies ] = useState(false)
 
 	const { isLoading, isError, error, data } = useQuery(['actorInfo', { id }], TMDB_API.getActor)
 
@@ -34,6 +39,23 @@ const actorInformation = () => {
                 <div>
 					{data.biography === '' ? <p>No available biography.</p> : <p>{data.biography}</p>}
                 </div>
+
+				<div className='informationDropDownMenu' onClick={() => {
+					setDisplayMovies(!displayMovies)
+				}}>
+					<h2 className='exploreHeader' style={{marginBottom: '0'}}> <span style={{borderBottom: displayMovies ? '1px solid lightgray' : 'none'}}>Movie presence</span></h2>
+					{displayMovies ? <FontAwesomeIcon size='xs' className='arrowDown' style={{paddingLeft: '5px'}} icon={faAngleUp}/> : <FontAwesomeIcon size='xs' style={{paddingLeft: '5px'}} icon={faAngleDown}/>}
+				</div>
+
+				<div className={displayMovies ? 'd-block ' : 'd-none'}>
+					{data.combined_credits.cast.map((movie, i) => {
+						return (
+							<div key={i}>
+							<Link className='blackLink' to={`/movie/${movie.id}`}>{movie.original_title} </Link>
+							</div>
+						)
+					})}
+				</div>
             </div>
 		</div>
 	)

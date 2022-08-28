@@ -13,7 +13,7 @@ const TopRatedMovies = () => {
 
 	const pageParam = searchParams.get('page')
 
-	const { isLoading, isError, error, data } = useQuery(['TopRatedMovies', { pageParam }], TMDB_API.topRatedMovies)
+	const { isLoading, isError, error, data } = useQuery(['TopRatedMovies', { pageParam }], TMDB_API.topRatedMovies, {keepPreviousData: true})
 
 	if (isLoading) {
 		return <p>Loading...</p>

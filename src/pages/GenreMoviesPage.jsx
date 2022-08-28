@@ -14,7 +14,7 @@ const GenreMoviesPage = () => {
 
 	const pageParam = searchParams.get('page')
 
-	const { isLoading, isError, error, data } = useQuery(['genreMovieList', { pageParam, id }], TMDB_API.getMoviesFromGenre)
+	const { isLoading, isError, error, data } = useQuery(['genreMovieList', { pageParam, id }], TMDB_API.getMoviesFromGenre, {keepPreviousData: true})
 
 	if (isLoading) {
 		return <p className="mt-3 mb-3" style={{textAlign: 'center'}}>Loading...</p>
