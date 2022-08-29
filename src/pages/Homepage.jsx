@@ -10,7 +10,7 @@ function Homepage() {
 		</div>
 		<div style={{margin: '30px', borderBottom: '1px solid lightgray', paddingBottom: '20px'}}>
 			<p>The Movie Bank was made using the TMDB - API with the purpose of assisting you in your quest of finding out what movie you're going to watch next. </p>
-			<p>Click on a movie that has caught your attention and get access additional information such as: the movie description, the fan-rating, the release-date, the actor involved; and much more! </p>
+			<p>Click on a movie that has caught your attention and get access to additional information such as: the movie description, the fan-rating, the release-date, the actors involved; and much more! </p>
 		</div>
 		<div className="d-flex flex-column align-items-center" style={{marginLeft: '20px', marginRight: '20px'}}>
 			<h1 style={{marginBottom: '20px'}}>Sort by</h1>
