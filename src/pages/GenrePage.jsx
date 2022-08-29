@@ -20,17 +20,19 @@ const GenrePage = () => {
 		<div>
 			<h1 style={{textAlign: 'center', borderBottom: '1px solid lightgray', margin: '20px', paddingBottom: '10px'}}>Genres</h1>
 			<div className="genresContainer">
-				{data.genres.map((genre, i) => {
-					return (
-					<Link className='genreCard' key={i} to={`/movies/${genre.name}/${genre.id}`}>
-						<Card style={{width: '100%', height: 150, backgroundColor: "black"}}>
-							<Card.Body className="d-flex justify-content-center align-items-center">
-								<Card.Title >{genre.name}</Card.Title>
-							</Card.Body>
-						</Card>
-					</Link>
-					)
-				})}
+				<div className="genres">
+					{data.genres.map((genre, i) => {
+						return (
+						<Link className='genreCard' key={i} to={`/movies/${genre.name}/${genre.id}`}>
+							<Card style={{width: '100%', height: 150, backgroundColor: "black"}}>
+								<Card.Body className="d-flex justify-content-center align-items-center">
+									<Card.Title >{genre.name}</Card.Title>
+								</Card.Body>
+							</Card>
+						</Link>
+						)
+					})}
+				</div>
 			</div>
 		</div>
 	)

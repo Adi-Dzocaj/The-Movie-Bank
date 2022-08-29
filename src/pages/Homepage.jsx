@@ -14,20 +14,20 @@ function Homepage() {
 		</div>
 		<div className="d-flex flex-column align-items-center" style={{marginLeft: '20px', marginRight: '20px'}}>
 			<h1 style={{marginBottom: '20px'}}>Sort by</h1>
-			<div style={{display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "10px", width: '100%', marginBottom: '20px'}}>
-				<Link style={{flex: '200px 1 0'}} to='/popular_movies'>
-					<Button style={{padding: '20px', width: '100%'}} variant="dark">Popularity</Button>
-				</Link>
-				<Link style={{flex: '200px 1 0'}} to='/latest_movies'>
-					<Button style={{padding: '20px', width: '100%'}} variant="dark">Release date</Button>
-				</Link>
-				<Link style={{flex: '200px 1 0'}} to='/top_rated_movies'>
-					<Button style={{padding: '20px', width: '100%'}} variant="dark">Rating</Button>
-				</Link>
-				<Link style={{flex: '200px 1 0'}} to='/movie/genres'>
-					<Button style={{padding: '20px', width: '100%'}} variant="dark">Genre</Button>
-				</Link>
-			</div>
+				<div style={{display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "10px", width: '100%', marginBottom: '20px', backgroundColor: 'rgb(188, 184, 179)', padding: '20px', borderRadius: '10px'}}>
+					<Link style={{flex: '200px 1 0'}} to='/popular_movies'>
+						<Button style={{padding: '20px', width: '100%'}} variant="dark">Popularity</Button>
+					</Link>
+					<Link style={{flex: '200px 1 0'}} to='/latest_movies'>
+						<Button style={{padding: '20px', width: '100%'}} variant="dark">Release date</Button>
+					</Link>
+					<Link style={{flex: '200px 1 0'}} to='/top_rated_movies'>
+						<Button style={{padding: '20px', width: '100%'}} variant="dark">Rating</Button>
+					</Link>
+					<Link style={{flex: '200px 1 0'}} to='/movie/genres'>
+						<Button style={{padding: '20px', width: '100%'}} variant="dark">Genre</Button>
+					</Link>
+				</div>
 		</div>
 	</div>
 	)
