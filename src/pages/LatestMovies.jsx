@@ -25,22 +25,19 @@ const latestMovies = () => {
 
 	return (
 		<div>
-			<div style={{position: 'sticky', top: '0', backgroundColor: 'white', zIndex: '50'}}>
-				<h1 className='mt-3 mb-3 pt-3 pb-3' style={{textAlign: "center", position: 'sticky', top: '0', borderBottom: '1px solid lightgray'}}>Latest Movies</h1>
-				<Pagination
-				currentPage={pageParam}
-				numPages={data.total_pages}
-				goPrevPage={() => {
-					setSearchParams({page: Number(pageParam) - 1 })
-				}}
-				goNextPage={() => {
-					setSearchParams({page: Number(pageParam) + 1 })
-				}}
-				disabledBack={Number(pageParam) === 1}
-				disabledFront={Number(pageParam) === data.total_pages}
-
-				/>
-			</div>
+			<h1 className='pt-3 pb-3' style={{textAlign: "center", borderBottom: '1px solid lightgray'}}>Latest Movies</h1>
+			<Pagination
+			currentPage={pageParam}
+			numPages={data.total_pages}
+			goPrevPage={() => {
+				setSearchParams({page: Number(pageParam) - 1 })
+			}}
+			goNextPage={() => {
+				setSearchParams({page: Number(pageParam) + 1 })
+			}}
+			disabledBack={Number(pageParam) === 1}
+			disabledFront={Number(pageParam) === data.total_pages}
+			/>
 			<MovieCards data={data}/>
 		</div>
 	)

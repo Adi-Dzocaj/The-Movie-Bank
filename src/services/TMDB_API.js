@@ -11,20 +11,20 @@ const get = async (endpoint) => {
 
 // Get popular movies
 const popularMovies = ({ queryKey }) => {
-	const [_key, { pageParam, popularityString}] = queryKey
-	return get(`${BASE_API_URL}/discover/movie${API_key}&page=${pageParam}&sort_by=popularity.${popularityString}&include_adult=false`)
+	const [_key, { pageParam }] = queryKey
+	return get(`${BASE_API_URL}/discover/movie${API_key}&page=${pageParam}&sort_by=popularity.desc&include_adult=false&certification_country=US`)
 }
 
 // Get top rated movies
 const topRatedMovies = ({ queryKey }) => {
 	const [_key, { pageParam }] = queryKey
-	return get(`${BASE_API_URL}/movie/top_rated${API_key}&page=${pageParam}&include_adult=false`)
+	return get(`${BASE_API_URL}/movie/top_rated${API_key}&page=${pageParam}&include_adult=false&certification_country=US`)
 }
 
 // Get latest movies
 const latestMovies = ({ queryKey }) => {
 	const [_key, { pageParam }] = queryKey
-	return get(`${BASE_API_URL}/movie/now_playing${API_key}&page=${pageParam}&sort_by=release_date.desc&include_adult=false`)
+	return get(`${BASE_API_URL}/movie/now_playing${API_key}&page=${pageParam}&sort_by=release_date.desc&include_adult=false&certification_country=US`)
 }
 
 // Get the specific movie information
@@ -42,7 +42,7 @@ const getGenres = ({ queryKey }) => {
 // Get all genre specific movies
 const getMoviesFromGenre = ({ queryKey }) => {
 	const [_key, { pageParam, id}] = queryKey
-	return get(`${BASE_API_URL}/discover/movie${API_key}&with_genres=${id}&page=${pageParam}&include_adult=false`)
+	return get(`${BASE_API_URL}/discover/movie${API_key}&with_genres=${id}&page=${pageParam}&include_adult=false&certification_country=US`)
 }
 
 // Get actor information
