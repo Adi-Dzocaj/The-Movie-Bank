@@ -17,11 +17,11 @@ const Navigation = () => {
 					</Dropdown.Toggle>
 
 					<Dropdown.Menu>
-						<Dropdown.Item as={Link} to='/latest_movies'>Senaste</Dropdown.Item>
-						<Dropdown.Item as={Link} to='/popular_movies'>Populära</Dropdown.Item>
-						<Dropdown.Item as={Link} to='/top_rated_movies'>Topplistade</Dropdown.Item>
+						<Dropdown.Item as={Link} to='/latest_movies'>Latest</Dropdown.Item>
+						<Dropdown.Item as={Link} to='/popular_movies'>Popular</Dropdown.Item>
+						<Dropdown.Item as={Link} to='/top_rated_movies'>Top-Listed</Dropdown.Item>
 						<Dropdown.Divider />
-						<Dropdown.Item as={Link} to='/movie/genres'>Genre</Dropdown.Item>
+						<Dropdown.Item as={Link} to='/movie/genres'>Genres</Dropdown.Item>
 					</Dropdown.Menu>
 				</Dropdown>
 			</div>
