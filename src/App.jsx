@@ -15,18 +15,18 @@ function App() {
 
 	return (
 	<>
-	<Navigation/>
-	<Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/latest_movies" element={<LatestMovies />} />
-        <Route path="/popular_movies" element={<PopularMoviePage />} />
-        <Route path="/top_rated_movies" element={<TopRatedMovies />} />
-		<Route path="/movie/:id" element={<MovieInformation/>}/>
-		<Route path="/movie/genres" element={<GenrePage/>}/>
-		<Route path="/movies/:genre/:id" element={<GenreMoviesPage/>}/>
-		<Route path="/person/:id" element={<ActorInformation/>}/>
-	</Routes>
-	<Footer/>
+		<Navigation/>
+		<Routes>
+			<Route path="/" element={<HomePage />} />
+			<Route path="/latest_movies" element={<LatestMovies />} />
+			<Route path="/popular_movies" element={<PopularMoviePage />} />
+			<Route path="/top_rated_movies" element={<TopRatedMovies />} />
+			<Route path="/movie/:id" element={<MovieInformation/>}/>
+			<Route path="/movie/genres" element={<GenrePage/>}/>
+			<Route path="/movies/:genre/:id" element={<GenreMoviesPage/>}/>
+			<Route path="/person/:id" element={<ActorInformation/>}/>
+		</Routes>
+		<Footer/>
 	</>
 	)
 }
