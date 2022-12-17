@@ -1,10 +1,11 @@
 .movieHero {
 	display: flex;
-	flex-direction: column;
 }
 
 .movieInformationImage {
-	width: 100%;
+	width: 40%;
+	object-fit: cover;
+	max-height: 300px;
 }
 
 .movieHeader {
@@ -90,5 +91,12 @@ p, .blackLink {
 		margin-top: 50px;
 		margin-left: 0px;
 		margin-right: 0px;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.movieInformationImage {
+		max-height: 600px;
+		width: 20%;
 	}
 }

@@ -28,7 +28,7 @@ const actorInformation = () => {
 	return (
 		<div className='movieInformationContainer'>
             <div className='movieHero'>
-                <img className='movieInformationImage' style={{maxHeight: '300px'}} src={UrlPrefixer.concat(data.profile_path)} alt="" />
+                <img className='movieInformationImage' src={UrlPrefixer.concat(data.profile_path)} alt="" />
                 <div className='movieHeader'>
                     <h2> <span style={{borderBottom: '1px solid lightgray', paddingBottom: '10px'}}>{data.name}</span> </h2>
                     <p style={{paddingTop: '10px'}}>{data.place_of_birth}</p>
